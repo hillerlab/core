@@ -32,7 +32,6 @@ process SPLICEAI_PREDICT {
     spliceai predict \\
         $args \\
         --outdir spliceai \\
-        --offset 50000 \\
         --sequence ${fasta}
 
     cat <<-END_VERSIONS > versions.yml
