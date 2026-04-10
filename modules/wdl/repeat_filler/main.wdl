@@ -61,7 +61,7 @@ task repeat_filler {
   }
 
   requirements {
-    container: "ghcr.io/alejandrogzi/repeat_filler:latest"
+    container: "ghcr.io/hillerlab/containers/repeat_filler:latest"
   }
 }
 

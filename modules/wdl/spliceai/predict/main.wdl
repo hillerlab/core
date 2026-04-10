@@ -26,7 +26,7 @@ task predict {
   }
 
   requirements {
-    container: "ghcr.io/alejandrogzi/spliceai:main-c258f79"
+    container: "ghcr.io/hillerlab/containers/spliceai:latest"
   }
 }
 

@@ -32,7 +32,7 @@ task trackdb {
   }
 
   requirements {
-    container: "ghcr.io/hillerlab/sed:latest"
+    container: "ghcr.io/hillerlab/containers/sed:latest"
   }
 }
 

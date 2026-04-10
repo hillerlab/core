@@ -32,7 +32,7 @@ task rsync_ssh {
   }
 
   requirements {
-    container: "ghcr.io/hillerlab/rsync_ssh:latest"
+    container: "ghcr.io/hillerlab/containers/rsync_ssh:latest"
   }
 }
 

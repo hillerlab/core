@@ -28,7 +28,7 @@ task chunk {
   }
 
   requirements {
-    container: "ghcr.io/hillerlab/aparent:latest"
+    container: "ghcr.io/hillerlab/containers/aparent:latest"
   }
 }
 

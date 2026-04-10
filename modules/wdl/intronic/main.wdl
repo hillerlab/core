@@ -32,7 +32,7 @@ task intronic {
   }
 
   requirements {
-    container: "ghcr.io/hillerlab/intronic:latest"
+    container: "ghcr.io/hillerlab/containers/intronic:latest"
   }
 }
 

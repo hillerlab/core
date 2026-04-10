@@ -10,7 +10,7 @@ process REPEAT_FILLER {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '' : 
-        'ghcr.io/alejandrogzi/repeat_filler:latest' }"
+        'ghcr.io/hillerlab/containers/repeat_filler:latest' }"
 
     input:
     path chain_chunk         // one infill_chain_N file

@@ -30,7 +30,7 @@ task derive {
   }
 
   requirements {
-    container: "ghcr.io/hillerlab/spliceai:latest"
+    container: "ghcr.io/hillerlab/containers/spliceai:latest"
   }
 }
 

@@ -10,7 +10,7 @@ process RSYNC_SSH {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '':
-        'ghcr.io/hillerlab/rsync_ssh:latest' }"
+        'ghcr.io/hillerlab/containers/rsync_ssh:latest' }"
 
     input:
     tuple val(meta), path(input)

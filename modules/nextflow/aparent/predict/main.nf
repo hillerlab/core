@@ -10,7 +10,7 @@ process APARENT_PREDICT {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '':
-        'ghcr.io/hillerlab/aparent:latest' }"
+        'ghcr.io/hillerlab/containers/aparent:latest' }"
 
     input:
     tuple val(meta), path(chunk_tsv)

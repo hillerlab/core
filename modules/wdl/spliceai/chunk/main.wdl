@@ -23,7 +23,7 @@ task chunk {
   }
 
   requirements {
-    container: "ghcr.io/alejandrogzi/spliceai:main-c258f79"
+    container: "ghcr.io/alejandrogzi/containers/spliceai:latest"
   }
 }
 

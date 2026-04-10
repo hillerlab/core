@@ -10,7 +10,7 @@ process INTRONIC {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '' :
-        'ghcr.io/hillerlab/intronic:latest' }"
+        'ghcr.io/hillerlab/containers/intronic:latest' }"
 
     input:
     tuple val(meta), path(introns)

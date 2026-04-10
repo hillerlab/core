@@ -10,7 +10,7 @@ process TRACKDB {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '':
-        'ghcr.io/hillerlab/sed:latest' }"
+        'ghcr.io/hillerlab/containers/sed:latest' }"
 
     input:
     path schema

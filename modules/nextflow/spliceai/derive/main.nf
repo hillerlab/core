@@ -10,7 +10,7 @@ process SPLICEAI_DERIVE {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '' :
-        'ghcr.io/hillerlab/spliceai:latest' }"
+        'ghcr.io/hillerlab/containers/spliceai:latest' }"
 
     input:
     tuple val(meta), path(genome)
