@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/nf-core/modules/master/modules/meta-schema.json
+name: "deacon_diff"
+description: Difference of two Deacon minimizer index files
+keywords:
+  - index
+  - fasta
+  - genome
+  - reference
+  - minimizer
+  - decontamination
+tools:
+  - "deacon":
+      description: "Fast alignment-free sequence filter"
+      homepage: "https://github.com/bede/deacon"
+      documentation: "https://github.com/bede/deacon#readme"
+      tool_dev_url: "https://github.com/bede/deacon"
+      doi: "10.1093/bioinformatics/btae004"
+      licence: ["MIT"]
+      identifier: "biotools:deacon"
+
+input:
+  - - meta:
+        type: map
+        description: |
+          Groovy Map containing reference information.
+          e.g. [ id:'test', single_end:false ]
+    - indexA:
+        type: file
+        description: Minimizer index file A
+        pattern: "*.{idx, iix, ix}"
+        ontologies:
+          - edam: "http://edamontology.org/data_2044" # Sequence
+          - edam: "http://edamontology.org/format_1929" # FASTA
+    - indexB:
+        type: file
+        description: Minimizer index file B
+        pattern: "*.{idx, iix, ix}"
+        ontologies:
+          - edam: "http://edamontology.org/data_2044" # Sequence
+          - edam: "http://edamontology.org/format_1929" # FASTA
+
+output:
+  index:
+    - - meta:
+          type: map
+          description: |
+            Groovy Map containing reference information.
+            e.g. [ id:'test', single_end:false ]
+      - "*.idx":
+          type: file
+          description: Deacon minimizer index file
+          pattern: "*.idx"
+          ontologies:
+            - edam: "http://edamontology.org/data_3210" # Genome index
+  versions:
+    - versions.yml:
+        type: file
+        description: File containing software versions
+        pattern: "versions.yml"
+
+        ontologies:
+          - edam: http://edamontology.org/format_3750 # YAML
+authors:
+  - "@alejandrogzi"
+maintainers:
+  - "@alejandrogzi"

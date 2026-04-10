@@ -1,0 +1,8 @@
+name: fill_chainmerge
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - ucsc-chainmergesort=377
+  - gzip=1.12

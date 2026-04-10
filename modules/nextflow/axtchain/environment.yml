@@ -1,0 +1,8 @@
+name: axtchain
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - ucsc-axtchain=377
+  - ucsc-chainantirepeat=377

@@ -1,0 +1,7 @@
+name: bigtools
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - bigtools=0.5.6

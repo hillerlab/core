@@ -1,0 +1,8 @@
+    // TODO: conda "bioconda::ucsc-pslsortacc=377"
+name: pslsortacc 
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - ucsc-pslsortacc=377

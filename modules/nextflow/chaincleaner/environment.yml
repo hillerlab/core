@@ -1,0 +1,9 @@
+name: chaincleaner
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - ucsc-chaincleaner=455
+  - ucsc-chainnet=482
+  - ucsc-chainfilter=482

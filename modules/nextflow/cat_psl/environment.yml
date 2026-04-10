@@ -1,0 +1,7 @@
+name: cat_psl
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - coreutils=9.0

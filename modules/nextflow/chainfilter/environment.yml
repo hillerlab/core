@@ -1,0 +1,8 @@
+name: chainfilter
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - ucsc-chainfilter=377
+  - gzip=1.12
