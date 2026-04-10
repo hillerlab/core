@@ -1,0 +1,25 @@
+name: :lint
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+    tags:
+      - "**"
+  workflow_dispatch: {}
+
+jobs:
+  lint:
+    name: nextflow lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Nextflow
+        uses: nf-core/setup-nextflow@v2
+
+      - name: Lint Nextflow files
+        run: nextflow lint .
