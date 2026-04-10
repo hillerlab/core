@@ -26,7 +26,6 @@ workflow SPLICEAI {
 
       RUN(
           ch_genome.genome,
-          params.annotation,
           ch_genome.chrom_sizes,
           compression,
           ch_versions
