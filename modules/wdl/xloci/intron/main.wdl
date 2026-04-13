@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# XLOCI_INTRON — Extract intronic loci from genome and RNA-seq reads.
+# Identifies novel intronic transcription by comparing genome sequences
+# against RNA-seq reads.
+
 version 1.3
 
 task intron {

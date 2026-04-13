@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# STAR_ALIGN — Align RNA-seq reads to a genome using STAR.
+# Spliced-aware aligner that outputs BAM files, splice junction tables,
+# and various quality metrics.
+
 version 1.3
 
 task align {

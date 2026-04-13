@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    MINIMAP2_ALIGN — Align long reads to a reference using Minimap2.
+    Fast aligner for long reads (PacBio, ONT) that supports splice-aware
+    alignment using junction BED and splice scores.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process MINIMAP2_ALIGN {
     tag "$meta.id chunk $meta.chunk"
     label 'process_medium_fast'

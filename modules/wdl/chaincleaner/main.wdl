@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# CHAINCLEANER — Remove weak and suspicious chains using chainCleaner.
+# chainCleaner requires additional Kent binaries (chainNet, NetFilterNonNested.perl)
+# in PATH; these are handled by the container/conda environment.
+
 version 1.3
 
 task chaincleaner {

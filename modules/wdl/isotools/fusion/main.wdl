@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# ISOTOOLS_FUSION — Detect gene fusion events using iso-fusion.
+# Identifies fusion transcripts by comparing query transcripts against
+# a reference genome annotation.
+
 version 1.3
 
 task fusion {

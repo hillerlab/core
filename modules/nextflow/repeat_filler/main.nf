@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    REPEAT_FILLER — Fill gaps in chain alignments using repeat filling.
+    Uses repeat masker to identify repeats within gaps and attempts to
+    align query sequences to fill the gaps with lastz.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process REPEAT_FILLER {
     tag "$chain_chunk.name"
     label 'process_fast'
@@ -10,7 +18,7 @@ process REPEAT_FILLER {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '' : 
-        'ghcr.io/hillerlab/containers/repeat_filler:latest' }"
+        'ghcr.io/hillerlab/repeat_filler:latest' }"
 
     input:
     path chain_chunk         // one infill_chain_N file

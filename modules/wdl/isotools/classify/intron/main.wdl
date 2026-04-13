@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# ISOTOOLS_CLASSIFY_INTRON — Classify intronic intervals using iso-classify.
+# Classifies introns from long-read data using genome, annotation, repeats,
+# and optional SpliceAI BigWig files.
+
 version 1.3
 
 task classify_intron {

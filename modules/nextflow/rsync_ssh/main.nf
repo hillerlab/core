@@ -3,6 +3,13 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    RSYNC_SSH — Transfer files to remote server via SSH using rsync.
+    Creates remote directory and syncs input files to target server.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process RSYNC_SSH {
     tag "$meta.id"
     label 'process_low'
@@ -10,7 +17,7 @@ process RSYNC_SSH {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '':
-        'ghcr.io/hillerlab/containers/rsync_ssh:latest' }"
+        'ghcr.io/hillerlab/rsync_ssh:latest' }"
 
     input:
     tuple val(meta), path(input)

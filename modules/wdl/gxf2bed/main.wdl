@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# GXF2BED — Convert GXF (GFF/GTF) annotations to BED format.
+# Transforms gene annotation files from GFF/GTF format to BED format
+# for compatibility with downstream tools.
+
 version 1.3
 
 task gxf2bed {

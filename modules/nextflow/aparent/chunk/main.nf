@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    APARENT_CHUNK — Chunk genomic regions for parallel APARENT prediction.
+    Splits genomic regions from a BED file into chunks that can be processed
+    in parallel by the APARENT predict step.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process APARENT_CHUNK {
     tag "$meta.id"
     label 'process_low'
@@ -10,7 +18,7 @@ process APARENT_CHUNK {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '' :
-        'ghcr.io/hillerlab/containers/aparent:latest' }"
+        'ghcr.io/hillerlab/aparent:latest' }"
 
     input:
     tuple val(meta), path(bed)

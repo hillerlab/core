@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    SPLICEAI_PREDICT — Predict splice junctions from genomic sequences.
+    Uses SpliceAI deep learning model to identify splice sites and outputs
+    BigWig files for donor/acceptor and forward/reverse strands.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process SPLICEAI_PREDICT {
     tag "$meta.id"
     label 'process_low'
@@ -10,7 +18,7 @@ process SPLICEAI_PREDICT {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '' :
-        'ghcr.io/hillerlab/containers/spliceai:latest' }"
+        'ghcr.io/hillerlab/spliceai:latest' }"
 
     input:
     tuple val(meta), path(fasta)

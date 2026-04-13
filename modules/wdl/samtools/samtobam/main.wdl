@@ -1,6 +1,9 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# SAMTOBAM — Convert SAM to BAM format and sort.
+# Uses samtools view to convert SAM files to BAM, then sorts the output.
+
 version 1.3
 
 task samtobam {

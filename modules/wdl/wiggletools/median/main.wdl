@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# WIGGLETOOLS_MEDIAN — Compute median value across multiple BigWig files.
+# Uses WiggleTools to calculate the median signal at each genomic position
+# from a set of BigWig coverage files.
+
 version 1.3
 
 task median {

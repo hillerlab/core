@@ -1,6 +1,9 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# CHAINFILTER — Filter chains by minimum score and compress the final result.
+# This is the last step of the pipeline; output is the final .chain.gz file.
+
 version 1.3
 
 task chainfilter {

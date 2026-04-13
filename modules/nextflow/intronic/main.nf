@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    INTRONIC — Classify intronic intervals using intronIC.
+    Identifies intronic intervals from annotations and classifies them
+    based on their position relative to known transcripts.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process INTRONIC {
     tag "$meta.id"
     label 'process_low'
@@ -10,7 +18,7 @@ process INTRONIC {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '' :
-        'ghcr.io/hillerlab/containers/intronic:latest' }"
+        'ghcr.io/hillerlab/intronic:latest' }"
 
     input:
     tuple val(meta), path(introns)

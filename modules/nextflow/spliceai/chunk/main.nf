@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    SPLICEAI_CHUNK — Chunk genomic sequences for parallel SpliceAI prediction.
+    Splits large genomes into smaller chunks to enable parallel processing
+    across multiple CPUs while avoiding memory issues.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process SPLICEAI_CHUNK {
     tag "$meta.id"
     label 'process_low'
@@ -10,7 +18,7 @@ process SPLICEAI_CHUNK {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '' :
-        'ghcr.io/hillerlab/containers/spliceai:latest' }"
+        'ghcr.io/hillerlab/spliceai:latest' }"
 
     input:
     tuple val(meta), path(genome)

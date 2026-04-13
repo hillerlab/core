@@ -1,6 +1,9 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# FILL_CHAINMERGE — Merge all filled chain chunks into a single compressed chain.
+# Uses chainMergeSort piped through gzip.
+
 version 1.3
 
 task fill_chainmerge {

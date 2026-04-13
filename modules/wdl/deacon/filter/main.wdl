@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# DEACON_FILTER — Filter reads using a Deacon transcript index.
+# Removes reads that map to a reference index, keeping only novel
+# transcripts for downstream analysis.
+
 version 1.3
 
 task filter {

@@ -1,6 +1,9 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# RSYNC_SSH — Transfer files to remote server via SSH using rsync.
+# Creates remote directory and syncs input files to target server.
+
 version 1.3
 
 task rsync_ssh {
@@ -32,7 +35,7 @@ task rsync_ssh {
   }
 
   requirements {
-    container: "ghcr.io/hillerlab/containers/rsync_ssh:latest"
+    container: "ghcr.io/hillerlab/rsync_ssh:latest"
   }
 }
 

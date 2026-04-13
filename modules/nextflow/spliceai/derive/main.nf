@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    SPLICEAI_DERIVE — Derive splice event scores from SpliceAI predictions.
+    Computes splicing effect scores by comparing SpliceAI predictions against
+    annotated splice sites from a reference annotation.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process SPLICEAI_DERIVE {
     tag "$meta.id"
     label 'process_medium'
@@ -10,7 +18,7 @@ process SPLICEAI_DERIVE {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '' :
-        'ghcr.io/hillerlab/containers/spliceai:latest' }"
+        'ghcr.io/hillerlab/spliceai:latest' }"
 
     input:
     tuple val(meta), path(genome)

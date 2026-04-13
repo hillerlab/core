@@ -1,6 +1,9 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# CAT_PSL — Concatenate LASTZ PSL files for one target-partition bucket.
+# Strips PSL header lines and compresses the output with gzip.
+
 version 1.3
 
 task cat_psl {

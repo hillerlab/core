@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# ISOTOOLS_SEGMENT — Filter and segment long-read transcripts using iso-segment.
+# Filters reads by quality and splits them into high-quality and low-quality
+# batches based on transcript completeness.
+
 version 1.3
 
 task segment {
