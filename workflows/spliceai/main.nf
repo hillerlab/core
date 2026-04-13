@@ -25,7 +25,7 @@ workflow SPLICEAI {
       compression = params.compression ? true : false
 
       RUN(
-          ch_genome.genome,
+          ch_genome.genome.map { g -> [ [ id: g.baseName ], g ] },
           ch_genome.chrom_sizes,
           compression,
           ch_versions
