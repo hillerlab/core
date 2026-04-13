@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    TRACKDB — Generate UCSC genome browser track database schema files.
+    Replaces placeholders in a schema template with browser, species, track, and
+    additional columns configuration.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process TRACKDB {
     tag "${prefix} trackDb"
     label 'process_low'
@@ -10,7 +18,7 @@ process TRACKDB {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '':
-        'ghcr.io/hillerlab/containers/sed:latest' }"
+        'ghcr.io/hillerlab/sed:latest' }"
 
     input:
     path schema

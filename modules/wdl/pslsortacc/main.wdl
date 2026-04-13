@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# PSL_SORT_ACC — Sort all PSL files by target chromosome using pslSortAcc.
+# Input PSL files must have no header lines (produced by CAT_PSL).
+# Outputs a directory where each file is named <chrom>.psl.
+
 version 1.3
 
 task pslsortacc {

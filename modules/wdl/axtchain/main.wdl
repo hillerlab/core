@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# AXTCHAIN — Convert PSL alignments to chains.
+# Runs axtChain piped through chainAntiRepeat for one PSL bundle.
+# Optional substitution score matrix (lastz_q) is supported.
+
 version 1.3
 
 task axtchain {

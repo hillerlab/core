@@ -1,6 +1,9 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# GUNZIP — Decompress gzipped files using gunzip.
+# Extracts contents of .gz files to their original uncompressed form.
+
 version 1.3
 
 task gunzip {

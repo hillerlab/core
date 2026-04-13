@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# BEAVER — Bayesian isoform assembly from multiple transcript annotations.
+# Integrates multiple GTF/GFF3 annotations to produce a unified transcript
+# set using Bayesian inference to resolve isoform structures.
+
 version 1.3
 
 task beaver {
@@ -41,7 +45,7 @@ task beaver {
   }
 
   requirements {
-    container: "ghcr.io/alejandrogzi/beaver:latest"
+    container: "ghcr.io/hillerlab/beaver:latest"
   }
 }
 

@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# SPLICEAI_DERIVE — Derive splice event scores from SpliceAI predictions.
+# Computes splicing effect scores by comparing SpliceAI predictions against
+# annotated splice sites from a reference annotation.
+
 version 1.3
 
 task derive {
@@ -30,7 +34,7 @@ task derive {
   }
 
   requirements {
-    container: "ghcr.io/hillerlab/containers/spliceai:latest"
+    container: "ghcr.io/hillerlab/spliceai:latest"
   }
 }
 

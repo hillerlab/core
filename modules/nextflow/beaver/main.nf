@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    BEAVER — Bayesian isoform assembly from multiple transcript annotations.
+    Integrates multiple GTF/GFF3 annotations to produce a unified transcript
+    set using Bayesian inference to resolve isoform structures.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process BEAVER {
     tag "meta_assembly"
     label 'process_long_high'
@@ -11,7 +19,7 @@ process BEAVER {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '' : 
-        'ghcr.io/alejandrogzi/beaver:latest' }"
+        'ghcr.io/hillerlab/beaver:latest' }"
 
     input:
     path gtfs

@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# DEACON_INDEX — Build a Deacon transcript index from FASTA sequences.
+# Creates a searchable index of transcript sequences for fast filtering
+# of long-read data against a reference transcriptome.
+
 version 1.3
 
 task index {

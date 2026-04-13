@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# STAR_JUNCTIONS — Merge and filter splice junction files from STAR.
+# Combines multiple SJ.out.tab files from different samples and filters
+# by minimum junction length and coverage.
+
 version 1.3
 
 task junctions {

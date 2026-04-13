@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    JOIN_JUNCTIONS — Merge and filter splice junction files from STAR.
+    Combines multiple SJ.out.tab files from different samples and filters
+    by minimum junction length and coverage.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process JOIN_JUNCTIONS {
     tag "$meta.id"
     label 'process_low'

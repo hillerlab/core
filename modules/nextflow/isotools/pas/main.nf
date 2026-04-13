@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    ISOTOOLS_PAS_CALLER — Call polyadenylation sites using iso-pas.
+    Identifies poly(A) sites by analyzing forward and reverse strand peaks
+    from RNA-seq data.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process ISOTOOLS_PAS_CALLER {
     tag "$meta.id"
     label 'process_low'

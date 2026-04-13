@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    UCSC_WIGTOBIGWIG — Convert Wiggle format to BigWig using UCSC wigToBigWig.
+    Transforms Wiggle track files into indexed BigWig binary format for
+    efficient visualization in genome browsers.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process UCSC_WIGTOBIGWIG {
     tag "$meta.id"
     label 'process_single'

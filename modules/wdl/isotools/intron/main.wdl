@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# ISOTOOLS_INTRON — Detect intron retention events using iso-intron.
+# Identifies intron retention by comparing query transcripts against a
+# reference intron annotation.
+
 version 1.3
 
 task intron {

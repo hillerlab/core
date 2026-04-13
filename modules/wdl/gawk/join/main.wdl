@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# GAWK_JOIN — Concatenate multiple files into one using gawk.
+# Joins multiple input files into a single output file with optional
+# sorting for BED files.
+
 version 1.3
 
 task join {

@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# REPEAT_FILLER — Fill gaps in chain alignments using repeat filling.
+# Uses repeat masker to identify repeats within gaps and attempts to
+# align query sequences to fill the gaps with lastz.
+
 version 1.3
 
 task repeat_filler {
@@ -61,7 +65,7 @@ task repeat_filler {
   }
 
   requirements {
-    container: "ghcr.io/hillerlab/containers/repeat_filler:latest"
+    container: "ghcr.io/hillerlab/repeat_filler:latest"
   }
 }
 

@@ -3,6 +3,14 @@ Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturfor
 Distributed under the terms of the Apache License, Version 2.0.
 */
 
+/*
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    APARENT_PREDICT — Predict polyadenylation sites using APARENT deep learning model.
+    Uses a convolutional neural network to predict poly(A) signal usage and
+    polyadenylation site strength from genomic sequences.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+*/
+
 process APARENT_PREDICT {
     tag "$meta.id $meta.chunk"
     label 'process_single'
@@ -10,7 +18,7 @@ process APARENT_PREDICT {
     conda "${moduleDir}/environment.yml"
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '':
-        'ghcr.io/hillerlab/containers/aparent:latest' }"
+        'ghcr.io/hillerlab/aparent:latest' }"
 
     input:
     tuple val(meta), path(chunk_tsv)

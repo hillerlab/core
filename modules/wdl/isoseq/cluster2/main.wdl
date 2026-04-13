@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# ISOSEQ_CLUSTER2 — Cluster PacBio IsoSeq reads using isoseq cluster2.
+# Groups similar full-length reads into consensus transcripts and outputs
+# clustered BAM files with cluster reports.
+
 version 1.3
 
 task cluster2 {

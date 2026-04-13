@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# PB_BAM_TO_FA — Extract PacBio BAM sequences to FASTA format.
+# Splits a PacBio BAM file into high-quality reads and singletons,
+# outputting both FASTA and BAM formats.
+
 version 1.3
 
 task pbbamtofa {

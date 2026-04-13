@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# INTRONIC — Classify intronic intervals using intronIC.
+# Identifies intronic intervals from annotations and classifies them
+# based on their position relative to known transcripts.
+
 version 1.3
 
 task intronic {
@@ -32,7 +36,7 @@ task intronic {
   }
 
   requirements {
-    container: "ghcr.io/hillerlab/containers/intronic:latest"
+    container: "ghcr.io/hillerlab/intronic:latest"
   }
 }
 

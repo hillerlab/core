@@ -1,6 +1,10 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
+# ISOTOOLS_PAS — Call polyadenylation sites using iso-pas.
+# Identifies poly(A) sites by analyzing forward and reverse strand peaks
+# from RNA-seq data.
+
 version 1.3
 
 task pas {
