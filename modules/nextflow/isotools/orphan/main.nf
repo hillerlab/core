@@ -25,9 +25,9 @@ process ISOTOOLS_ORPHAN {
     tuple val(meta1), path(reference)
 
     output:
-    tuple val(meta), path("*/*orphan_free.bed")       , optional: true, emit: pass
-    tuple val(meta1), path("*/*orphans.bed")          , optional: true, emit: orphans
-    path "versions.yml"                               , emit: versions
+    tuple val(meta), path("*/*.hq.bed")       , optional: true, emit: hq
+    tuple val(meta1), path("*/*.scraps.bed")  , optional: true, emit: scraps
+    path "versions.yml"                       , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -37,7 +37,7 @@ process ISOTOOLS_ORPHAN {
     def prefix    = task.ext.prefix ?: "${meta.id}"
 
     meta1 = meta.clone()
-    meta1.id = meta.id.split('.')[0] + '.orphans'
+    meta1.id = meta.id.split('.')[0] + '.scraps'
     """
     cut -f1-12 ${bed} > tmp.bed
 
@@ -49,22 +49,22 @@ process ISOTOOLS_ORPHAN {
         --threads ${task.cpus} \\
         --prefix ${prefix} 
 
-    if [ ! -s orphans/${prefix}.orphan_free.bed ]; then
-        rm orphans/${prefix}.orphan_free.bed
+    if [ ! -s orphans/${prefix}.hq.bed ]; then
+        rm orphans/${prefix}.hq.bed
     else
         grep -f \\
-        <(cut -f4 orphans/${prefix}.orphan_free.bed) ${bed} \\
+        <(cut -f4 orphans/${prefix}.hq.bed) ${bed} \\
         > tmp.bed && \\
-        mv tmp.bed orphans/${prefix}.orphan_free.bed
+        mv tmp.bed orphans/${prefix}.hq.bed
     fi
 
-    if [ ! -s orphans/${prefix}.orphans.bed ]; then
-        rm orphans/${prefix}.orphans.bed
+    if [ ! -s orphans/${prefix}.scraps.bed ]; then
+        rm orphans/${prefix}.scraps.bed
     else
         grep -f \\
-        <(cut -f4 orphans/${prefix}.orphans.bed) ${bed} \\
+        <(cut -f4 orphans/${prefix}.scraps.bed) ${bed} \\
         > tmp.bed && \\
-        mv tmp.bed orphans/${prefix}.orphans.bed
+        mv tmp.bed orphans/${prefix}.scraps.bed
     fi
 
     rm tmp.bed
@@ -78,8 +78,8 @@ process ISOTOOLS_ORPHAN {
     stub:
     def prefix = task.ext.prefix ?: "${meta.id}"
     """
-    touch orphans/${prefix}.orphan_free.bed
-    touch orphans/${prefix}.orphans.bed
+    touch orphans/${prefix}.hq.bed
+    touch orphans/${prefix}.scraps.bed
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":

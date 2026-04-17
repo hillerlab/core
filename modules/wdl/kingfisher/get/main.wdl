@@ -34,7 +34,7 @@ task kingfisher_get {
 workflow run {
   input {
     String accession
-    String provider = "ena-ftp"
+    String provider = "ena-ftp aws-http aws-cp"
   }
 
   call kingfisher_get {

@@ -31,7 +31,7 @@ process KINGFISHER_GET {
     task.ext.when == null || task.ext.when
 
     script:
-    def provider = task.ext.provider ?: 'ena-ftp,aws-http,aws-cp'
+    def provider = task.ext.provider ?: 'ena-ftp aws-http aws-cp'
     meta = [ id: accession ]
     """
     kingfisher \\
