@@ -36,8 +36,8 @@ process GXF2BED {
     """
     gxf2bed \\
         $args \\
-        $gxf \\
-        ${prefix}.bed
+        --input $gxf \\
+        --output ${prefix}.bed
         
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
