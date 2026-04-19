@@ -12,7 +12,7 @@ Distributed under the terms of the Apache License, Version 2.0.
 */
 
 process ISOTOOLS_FUSION {
-    tag "$meta.id:$meta.chr"
+    tag "$meta.id"
     label 'process_low'
 
     conda "${moduleDir}/environment.yml"
@@ -22,7 +22,7 @@ process ISOTOOLS_FUSION {
 
     input:
     tuple val(meta), path(bed)
-    path(reference)
+    tuple val(meta1), path(reference)
 
     output:
     tuple val(meta), path("*/fusions.bed")       , optional: true, emit: fusion
@@ -35,7 +35,7 @@ process ISOTOOLS_FUSION {
 
     script:
     def args      = task.ext.args ?: ''
-    def prefix    = task.ext.prefix ?: "${meta.id}_${meta.chr}"
+    def prefix    = task.ext.prefix ?: "${meta.id}"
     def queries   = (bed instanceof List) ? bed.join(',') : bed
     """
     iso-fusion \\

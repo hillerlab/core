@@ -23,11 +23,12 @@ process ISOTOOLS_ORPHAN {
     input:
     tuple val(meta), path(bed)
     tuple val(meta1), path(reference)
+    tuple val(meta2), path(splice_scores)
 
     output:
-    tuple val(meta), path("*/*.hq.bed")       , optional: true, emit: hq
-    tuple val(meta1), path("*/*.scraps.bed")  , optional: true, emit: scraps
-    path "versions.yml"                       , emit: versions
+    tuple val(meta), path("*/*.hq.bed")             , optional: true, emit: hq
+    tuple val(meta_scraps), path("*/*.scraps.bed")  , optional: true, emit: scraps
+    path "versions.yml"                             , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -35,39 +36,19 @@ process ISOTOOLS_ORPHAN {
     script:
     def args      = task.ext.args ?: ''
     def prefix    = task.ext.prefix ?: "${meta.id}"
+    def scores    = splice_scores ? "--splicing-scores $splice_scores" : ''
 
-    meta1 = meta.clone()
-    meta1.id = meta.id.split('.')[0] + '.scraps'
+    meta_scraps = meta.clone()
+    meta_scraps.id = meta.id + '.scraps'
     """
-    cut -f1-12 ${bed} > tmp.bed
-
     iso-orphan \\
         $args \\
+        $scores \\
         --ref $reference \\
         --query tmp.bed \\
         --all \\
         --threads ${task.cpus} \\
         --prefix ${prefix} 
-
-    if [ ! -s orphans/${prefix}.hq.bed ]; then
-        rm orphans/${prefix}.hq.bed
-    else
-        grep -f \\
-        <(cut -f4 orphans/${prefix}.hq.bed) ${bed} \\
-        > tmp.bed && \\
-        mv tmp.bed orphans/${prefix}.hq.bed
-    fi
-
-    if [ ! -s orphans/${prefix}.scraps.bed ]; then
-        rm orphans/${prefix}.scraps.bed
-    else
-        grep -f \\
-        <(cut -f4 orphans/${prefix}.scraps.bed) ${bed} \\
-        > tmp.bed && \\
-        mv tmp.bed orphans/${prefix}.scraps.bed
-    fi
-
-    rm tmp.bed
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
