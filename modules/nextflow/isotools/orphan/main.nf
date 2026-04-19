@@ -23,7 +23,7 @@ process ISOTOOLS_ORPHAN {
     input:
     tuple val(meta), path(bed)
     tuple val(meta1), path(reference)
-    tupel val(meta2), path(splice_scores)
+    tuple val(meta2), path(splice_scores)
 
     output:
     tuple val(meta), path("*/*.hq.bed")             , optional: true, emit: hq

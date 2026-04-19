@@ -37,11 +37,11 @@ process BED2GTF {
     def args = task.ext.args ?: ''
     def format = task.ext.format ?: 'gtf'
     def prefix = task.ext.prefix ?: bed.baseName + '.' + format
-    def isoforms = isoforms ? "--isoforms ${isoforms}" : ''
+    def isf = isoforms ? "--isoforms ${isoforms}" : ''
     """
     bed2gtf \\
         $args \\
-        $isoforms \\
+        $isf \\
         -T ${task.cpus} \\
         -i ${bed} \\
         -o $prefix

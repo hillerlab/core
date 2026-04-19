@@ -22,7 +22,7 @@ process ISOTOOLS_FUSION {
 
     input:
     tuple val(meta), path(bed)
-    tule val(meta1), path(reference)
+    tuple val(meta1), path(reference)
 
     output:
     tuple val(meta), path("*/fusions.bed")       , optional: true, emit: fusion
