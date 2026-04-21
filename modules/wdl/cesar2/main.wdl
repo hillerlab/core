@@ -1,9 +1,11 @@
 # Copyright (c) 2026 The Hiller Lab at the Senckenberg Gessellschaft für Naturforschung
 # Distributed under the terms of the Apache License, Version 2.0.
 
-# CESAR2 — Generate chromosome size files from genome FASTA.
-# Extracts sequence lengths from a FASTA genome and outputs a chrom.sizes
-# file required by many UCSC tools.
+# CESAR2 —  A method to realign coding exons or genes to DNA sequences using a 
+# Hidden Markov Model. Substantially improves the identification of splice sites 
+# that have shifted over a larger distance, which improves the accuracy of detecting 
+# the correct exon boundaries. Second, CESAR 2.0 provides a new gene mode that 
+# re-aligns entire genes at once
 
 version 1.3
 
