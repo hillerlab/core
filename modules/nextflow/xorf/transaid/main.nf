@@ -17,12 +17,11 @@ process TRANSAID {
 
     input:
     tuple val(meta), path(sequence)
-    tuple val(meta), path(bed)
+    tuple val(meta1), path(bed)
 
     output:
-    tuple val(meta), path("*csv")            , optional: true, emit: transaid
-    tuple val(meta), env(PREDICTION_COUNT)   , optional: true, emit: count
-    path "versions.yml"                                      , emit: versions
+    tuple val(meta1), path("*csv")            , optional: true, emit: transaid
+    path "versions.yml"                       , emit: versions
 
     when:
     task.ext.when == null || task.ext.when
@@ -37,8 +36,6 @@ process TRANSAID {
     $args
 
     mv *csv ${meta.id}.${meta.name}.transaid.csv
-    PREDICTION_COUNT=\$(wc -l < ${meta.id}.${meta.name}.transaid.csv)
-    
     rm *.faa
 
     cat <<-END_VERSIONS > versions.yml
