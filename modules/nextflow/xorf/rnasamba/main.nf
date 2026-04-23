@@ -18,7 +18,7 @@ process RNASAMBA {
 
     input:
     tuple val(meta), path(bed), path(sequence)
-    tuple val(_), path(weights)
+    tuple val(meta1), path(weights)
 
     output:
     tuple val(meta), path("${meta.id}/*tsv")      , optional: true, emit: samba

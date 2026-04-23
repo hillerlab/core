@@ -16,11 +16,10 @@ process NETSTART2 {
 
     input:
     tuple val(meta), path(sequence)
-    tuple val(meta), path(bed)
+    tuple val(meta1), path(bed)
 
     output:
-    tuple val(meta), path("${meta.id}*csv"), optional: true, emit: netstart
-    tuple val(meta), env(PREDICTION_COUNT),  optional: true, emit: count
+    tuple val(meta1), path("${meta.id}*csv"), optional: true, emit: netstart
     path "versions.yml", emit: versions
 
     when:
@@ -33,10 +32,8 @@ process NETSTART2 {
     -in $sequence \\
     -compute_device cpu \\
     -o chordata \\
-    -out ${meta.id}_netstart
+    -out ${meta.id}_netstart \\
     $args
-
-    PREDICTION_COUNT=\$(wc -l < ${meta.id}*csv)
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
