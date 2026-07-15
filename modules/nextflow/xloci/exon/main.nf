@@ -5,11 +5,11 @@ Distributed under the terms of the Apache License, Version 2.0.
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    XLOCI_INTRON — Extract intronic loci from genome using reads [bed/gtf/gff]
+    XLOCI_EXON — Extract exonic loci from genome using reads [bed/gff/gtf]
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-process XLOCI_INTRON {
+process XLOCI_EXON {
     tag "$meta.id"
     label 'process_low'
 
@@ -36,7 +36,7 @@ process XLOCI_INTRON {
     """
     xloci \\
         $args \\
-        -f intron \\
+        -f exon \\
         -o . \\
         -s $genome \\
         -r $reads \\
