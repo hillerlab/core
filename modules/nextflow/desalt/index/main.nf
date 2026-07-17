@@ -23,6 +23,7 @@ process DESALT_INDEX {
     tuple val(meta), path(genome)
 
     output:
+    tuple val(meta), path("${prefix}.index"), emit: index
     path "versions.yml"                   , emit: versions
 
     when:
@@ -47,7 +48,7 @@ process DESALT_INDEX {
 
     stub:
     """
-    touch ${meta.id}.sam
+    touch ${prefix}.index
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
