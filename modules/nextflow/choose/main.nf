@@ -59,4 +59,5 @@ process CHOOSE {
     "${task.process}":
         choose: \$(echo "1.3.7")
     END_VERSIONS
+    """
 }
