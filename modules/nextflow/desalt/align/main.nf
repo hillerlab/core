@@ -6,25 +6,25 @@ Distributed under the terms of the Apache License, Version 2.0.
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    CHOOSE — Select fields from text files using the Rust choose CLI
+    DESALT_ALIGN — Align reads to a genome using deSALT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
-process CHOOSE {
+process DESALT_ALIGN {
     tag "${meta.id}"
-    label 'process_low'
+    label 'process_medium'
 
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
         '' :
-        'ghcr.io/hillerlab/choose:1.3.7' }"
+        'ghcr.io/hillerlab/desalt:latest' }"
 
 
     input:
-    tuple val(meta), path(input)
-    val selections
+    tuple val(meta), path(reads)
+    tuple val(meta1), path(index)
+    tuple val(meta2), path(gtf)
 
     output:
-    tuple val(meta), path("*.choose.tsv"), emit: output
     path "versions.yml"                   , emit: versions
 
     when:
@@ -32,32 +32,31 @@ process CHOOSE {
 
     script:
     def args = task.ext.args ?: ''
-
-    def selected_fields = selections instanceof List
-        ? selections.collect { it.toString() }.join(' ')
-        : selections.toString()
+    def annotation = gtf ? "--gtf ${gtf}" : ''
 
     """
-    choose \\
+    deSALT \\
+        aln \\
         ${args} \\
-        ${selected_fields} \\
-        -o '\t'
-        < "${input}" \\
-        > "${input.simpleName}.choose.tsv"
+        ${annotation} \\
+        --thread ${task.cpus} \\
+        --output ${meta.id}.sam \\
+        ${index} \\
+        ${reads}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        choose: \$(choose --version | awk '{print \$2}')
+        deSALT: \$(deSALT | grep 'Version' | awk '{print \$2}')
     END_VERSIONS
     """
 
     stub:
     """
-    touch ${input.simpleName}.choose.tsv
+    touch ${meta.id}.sam
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        choose: \$(echo "1.3.7")
+        deSALT: \$(deSALT | grep 'Version' | awk '{print \$2}')
     END_VERSIONS
     """
 }
