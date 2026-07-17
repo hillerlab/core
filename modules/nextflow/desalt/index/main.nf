@@ -6,7 +6,7 @@ Distributed under the terms of the Apache License, Version 2.0.
 
 /*
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    DESALT_ALIGN — Align reads to a genome using deSALT
+    DESALT_INDEX — Builds an index for deSALT aligner
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
