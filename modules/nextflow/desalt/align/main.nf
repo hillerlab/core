@@ -25,6 +25,7 @@ process DESALT_ALIGN {
     tuple val(meta2), path(gtf)
 
     output:
+    tuple val(meta), path("*.sam"), emit: sam
     path "versions.yml"                   , emit: versions
 
     when:
