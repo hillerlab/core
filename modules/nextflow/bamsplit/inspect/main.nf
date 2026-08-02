@@ -24,8 +24,8 @@ process BAMSPLIT_INSPECT {
     tuple val(meta), path(bam)
 
     output:
-    tuple val(meta), path("${prefix}.txt")  , optional: true, emit: report
-    tuple val(meta), path("${prefix}.json") , optional: true, emit: json
+    tuple val(meta), path("*.txt")  , optional: true, emit: report
+    tuple val(meta), path("*.json") , optional: true, emit: json
     path  "versions.yml"                    , emit: versions
 
     when:

@@ -25,10 +25,10 @@ process BAMSPLIT_TAG {
     tuple val(meta), path(bam)
 
     output:
-    tuple val(meta), path("${out_dir}/*.bam")        , optional: true, emit: bam
-    tuple val(meta), path("${out_dir}/*.bai")        , optional: true, emit: bai
-    tuple val(meta), path("${out_dir}/*.csi")        , optional: true, emit: csi
-    tuple val(meta), path("${out_dir}/*.json")       , optional: true, emit: manifest
+    tuple val(meta), path("*/*.bam")        , optional: true, emit: bam
+    tuple val(meta), path("*/*.bai")        , optional: true, emit: bai
+    tuple val(meta), path("*/*.csi")        , optional: true, emit: csi
+    tuple val(meta), path("*/*.json")       , optional: true, emit: manifest
     path  "versions.yml"                             , emit: versions
 
     when:
