@@ -1,0 +1,7 @@
+name: pigeon_prepare_models
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - bioconda::pbpigeon=26.2.0
