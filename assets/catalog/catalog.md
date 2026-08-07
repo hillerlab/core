@@ -112,6 +112,7 @@
 
 ## Long-read & IsoSeq transcriptomics
 
+- [bam2gtf](../../modules/nextflow/bam2gtf/main.nf) — Turn a genome-aligned spliced BAM into a transcript GTF, one transcript per primary read.
 - [bax2bam](../../modules/nextflow/bax2bam/main.nf) — Convert BAX to BAM format with scraps and subreads.
 - [pbbamtofa](../../modules/nextflow/pbbamtofa/main.nf) — Extract PacBio BAM sequences to FASTA format.
 - [longread/check](../../modules/nextflow/longread/check/main.nf) — Check long-read chunk BAMs for errors.
@@ -135,6 +136,21 @@
 - [deacon/filter](../../modules/nextflow/deacon/filter/main.nf) — Filter reads using a Deacon transcript index.
 - [deacon/index](../../modules/nextflow/deacon/index/main.nf) — Build a Deacon transcript index from FASTA sequences.
 - [deacon/union](../../modules/nextflow/deacon/union/main.nf) — Create a union index from multiple Deacon indexes.
+- [flair/transcriptome](../../modules/nextflow/flair/transcriptome/main.nf) — Build a high-confidence isoform annotation directly from an aligned BAM.
+- [gstama/addcdsregions](../../modules/nextflow/gstama/addcdsregions/main.nf) — Add CDS regions to a gs-tama BED from parsed ORF BLAST output.
+- [gstama/blastpparser](../../modules/nextflow/gstama/blastpparser/main.nf) — Parse ORF BLASTP output into a gs-tama TSV.
+- [gstama/filelist](../../modules/nextflow/gstama/filelist/main.nf) — Write a gs-tama file list TSV for downstream steps.
+- [gstama/orfseeker](../../modules/nextflow/gstama/orfseeker/main.nf) — Predict open reading frames in a transcript FASTA with gs-tama.
+- [pigeon/classify](../../modules/nextflow/pigeon/classify/main.nf) — Classify a prepared query GFF against a prepared reference (SQANTI3-style).
+- [pigeon/prepare_models](../../modules/nextflow/pigeon/prepare_models/main.nf) — Sort and index a query transcript GFF for Pigeon classify.
+- [pigeon/prepare_reference](../../modules/nextflow/pigeon/prepare_reference/main.nf) — Prepare the reference annotation and genome for Pigeon classification.
+- [sqanti3/qc](../../modules/nextflow/sqanti3/qc/main.nf) — Structural QC and classification of collapsed transcript models.
+- [talon/annotate](../../modules/nextflow/talon/annotate/main.nf) — Match labelled reads to a TALON database, assigning known/novel transcript models.
+- [talon/creategtf](../../modules/nextflow/talon/creategtf/main.nf) — Export the observed transcript annotation from a TALON database.
+- [talon/filter](../../modules/nextflow/talon/filter/main.nf) — Select transcript models for the final TALON annotation.
+- [talon/initdb](../../modules/nextflow/talon/initdb/main.nf) — Build the TALON SQLite database from a reference annotation.
+- [talon/labelreads](../../modules/nextflow/talon/labelreads/main.nf) — Flag reads by trailing genomic As ahead of TALON annotation.
+- [transcriptclean](../../modules/nextflow/transcriptclean/main.nf) — Reference-based correction of a splice-aware genome alignment.
 
 ---
 
