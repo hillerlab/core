@@ -54,6 +54,7 @@
 - [chaincleaner](../../modules/nextflow/chaincleaner/main.nf) — Remove weak and suspicious chains using chainCleaner.
 - [chainfilter](../../modules/nextflow/chainfilter/main.nf) — Filter chains by minimum score and compress the result.
 - [chainmergesort](../../modules/nextflow/chainmergesort/main.nf) — Merge per-bundle chain files into a single sorted chain.
+- [chainc](../../modules/nextflow/chainc/main.nf) — Remove chain-breaking alignments using chain/net files.
 - [chaintools/antirepeat](../../modules/nextflow/chaintools/antirepeat/main.nf) — Remove chains that are primarily the result of repeats.
 - [chaintools/filter](../../modules/nextflow/chaintools/filter/main.nf) — Filter chains by chain score/target/query.
 - [chaintools/merge](../../modules/nextflow/chaintools/merge/main.nf) — Merge chains into a single chain file.
@@ -185,6 +186,30 @@
 - [samtools/mergebam](../../modules/nextflow/samtools/mergebam/main.nf) — Merge multiple BAM files into one sorted BAM.
 - [samtools/samtobam](../../modules/nextflow/samtools/samtobam/main.nf) — Convert SAM to BAM format and sort.
 - [fxsplit](../../modules/nextflow/fxsplit/main.nf) — Split FASTX/FASTQ reads into chunks for parallel processing.
+
+---
+
+## BINSEQ & CBQ
+
+- [bqc/adapter](../../modules/nextflow/bqc/adapter/main.nf) — Remove 3' adapter sequences from CBQ reads.
+- [bqc/correct](../../modules/nextflow/bqc/correct/main.nf) — Correct low-quality bases from the other mate of a CBQ pair.
+- [bqc/filter](../../modules/nextflow/bqc/filter/main.nf) — Filter CBQ reads against per-read predicates.
+- [bqc/segment](../../modules/nextflow/bqc/segment/main.nf) — Split CBQ reads at internal adapter occurrences.
+- [bqc/sniff/adapters](../../modules/nextflow/bqc/sniff/adapters/main.nf) — Infer adapter contamination in CBQ reads.
+- [bqc/sniff/strand](../../modules/nextflow/bqc/sniff/strand/main.nf) — Infer RNA-seq library strandedness from CBQ reads.
+- [bqc/trim](../../modules/nextflow/bqc/trim/main.nf) — Trim CBQ reads by quality, position, Ns or poly tails.
+- [bqc/workflow](../../modules/nextflow/bqc/workflow/main.nf) — All-in-one CBQ quality control in a single pass.
+- [bqtools/cat](../../modules/nextflow/bqtools/cat/main.nf) — Concatenate multiple BINSEQ files into one.
+- [bqtools/decode](../../modules/nextflow/bqtools/decode/main.nf) — Convert BINSEQ files back to FASTQ.
+- [bqtools/encode](../../modules/nextflow/bqtools/encode/main.nf) — Encode FASTQ reads into the columnar CBQ format.
+- [bqtools/grep](../../modules/nextflow/bqtools/grep/main.nf) — Search BINSEQ records for subsequences or regexes.
+- [bqtools/info](../../modules/nextflow/bqtools/info/main.nf) — Show information and statistics about a BINSEQ file.
+- [bqtools/qc](../../modules/nextflow/bqtools/qc/main.nf) — FastQC-inspired quality control on a BINSEQ file.
+- [bqtools/revcomp](../../modules/nextflow/bqtools/revcomp/main.nf) — Reverse complement BINSEQ sequences.
+- [bqtools/split](../../modules/nextflow/bqtools/split/main.nf) — Split a BINSEQ file into per-pattern files.
+- [bqtools/verify](../../modules/nextflow/bqtools/verify/main.nf) — Compute an order-independent BINSEQ checksum.
+- [deacon-cbq](../../modules/nextflow/deacon-cbq/main.nf) — Filter CBQ reads using a Deacon transcript index.
+- [rustar-cbq](../../modules/nextflow/rustar-cbq/main.nf) — STAR-compatible alignment of FASTQ or CBQ reads.
 
 ---
 
