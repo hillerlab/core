@@ -1,0 +1,198 @@
+<p align="center">
+  <p align="center">
+  <picture>
+    <source
+      media="(prefers-color-scheme: dark)"
+      srcset="../figures/hillerlab-dark.png"
+    >
+    <source
+      media="(prefers-color-scheme: light)"
+      srcset="../figures/hillerlab-light.png"
+    >
+    <img
+      width="200"
+      alt="Hiller Lab"
+      src="../figures/hillerlab-light.png"
+    >
+  </picture>
+  </p>
+
+  <span>
+    <h1 align="center">
+        core
+    </h1>
+  </span>
+
+  <p align="center">
+    <a href="https://github.com/hillerlab/core" target="_blank">
+      <img alt="GitHub License" src="https://img.shields.io/github/license/hillerlab/core?color=blue">
+    </a>
+  </p>
+
+  <p align="center">
+    <samp>
+        <span> core modules/subworkflows repository for</span>
+        <br>
+        <span> The Hiller Lab at the Senckenberg Gesellschaft für Naturforschung </span>
+        <br>
+        <br>
+        <a href="https://github.com/hillerlab/core/blob/master/assets/catalog/catalog.md">catalog</a> .
+        <a href="https://github.com/hillerlab/containers">containers</a> .
+        <a href="https://hillerlab.com/">us</a> 
+    </samp>
+  </p>
+
+</p>
+
+---
+
+## Genome alignment & comparison (chains/PSL)
+
+- [axtchain](../../modules/nextflow/axtchain/main.nf) — Convert PSL alignments to chains.
+- [cat_psl](../../modules/nextflow/cat_psl/main.nf) — Concatenate LASTZ PSL files for one target-partition bucket.
+- [cesar2](../../modules/nextflow/cesar2/main.nf) — Realign coding exons or genes to DNA sequences.
+- [chaincleaner](../../modules/nextflow/chaincleaner/main.nf) — Remove weak and suspicious chains using chainCleaner.
+- [chainfilter](../../modules/nextflow/chainfilter/main.nf) — Filter chains by minimum score and compress the result.
+- [chainmergesort](../../modules/nextflow/chainmergesort/main.nf) — Merge per-bundle chain files into a single sorted chain.
+- [chaintools/antirepeat](../../modules/nextflow/chaintools/antirepeat/main.nf) — Remove chains that are primarily the result of repeats.
+- [chaintools/filter](../../modules/nextflow/chaintools/filter/main.nf) — Filter chains by chain score/target/query.
+- [chaintools/merge](../../modules/nextflow/chaintools/merge/main.nf) — Merge chains into a single chain file.
+- [chaintools/score](../../modules/nextflow/chaintools/score/main.nf) — Score chains by chain score/target/query.
+- [chaintools/sort](../../modules/nextflow/chaintools/sort/main.nf) — Sort chains by chain score/target/query.
+- [chaintools/split](../../modules/nextflow/chaintools/split/main.nf) — Split chains into multiple chain files/chunks.
+- [fill_chainmerge](../../modules/nextflow/fill_chainmerge/main.nf) — Merge filled chain chunks into a single compressed chain.
+- [psltools/convert](../../modules/nextflow/psltools/convert/main.nf) — Convert PSL to BED.
+- [psltools/filter](../../modules/nextflow/psltools/filter/main.nf) — Filter PSL files by score, strand, or other criteria.
+- [psltools/merge](../../modules/nextflow/psltools/merge/main.nf) — Merge PSL files into a single PSL file.
+- [psltools/score](../../modules/nextflow/psltools/score/main.nf) — Score PSL files by summing alignment scores.
+- [psltools/sort](../../modules/nextflow/psltools/sort/main.nf) — Sort PSL files by chromosome, start, or other criteria.
+- [psltools/split](../../modules/nextflow/psltools/split/main.nf) — Split PSL files into multiple PSL files.
+- [psltools/stats](../../modules/nextflow/psltools/stats/main.nf) — Get statistics about PSL files.
+- [psltools/swap](../../modules/nextflow/psltools/swap/main.nf) — Swap PSL files from reference to query.
+- [pslsortacc](../../modules/nextflow/pslsortacc/main.nf) — Sort PSL files by target chromosome using pslSortAcc.
+- [repeat_filler](../../modules/nextflow/repeat_filler/main.nf) — Fill gaps in chain alignments using repeat filling.
+
+---
+
+## Read alignment & indexing
+
+- [minimap2/align](../../modules/nextflow/minimap2/align/main.nf) — Align long reads to a reference using Minimap2.
+- [desalt/align](../../modules/nextflow/desalt/align/main.nf) — Align reads to a genome using deSALT.
+- [desalt/index](../../modules/nextflow/desalt/index/main.nf) — Build an index for the deSALT aligner.
+- [star/align](../../modules/nextflow/star/align/main.nf) — Align RNA-seq reads to a genome using STAR.
+- [star/genomegenerate](../../modules/nextflow/star/genomegenerate/main.nf) — Generate STAR splice-junction-aware genome index from FASTA and GTF.
+
+---
+
+## RNA-seq & splicing prediction
+
+- [star/junctions](../../modules/nextflow/star/junctions/main.nf) — Merge and filter splice junction files from STAR.
+- [spliceai/chunk](../../modules/nextflow/spliceai/chunk/main.nf) — Chunk genomic sequences for parallel SpliceAI prediction.
+- [spliceai/derive](../../modules/nextflow/spliceai/derive/main.nf) — Derive splice event scores from SpliceAI predictions.
+- [spliceai/predict](../../modules/nextflow/spliceai/predict/main.nf) — Predict splice junctions from genomic sequences using SpliceAI.
+- [spliceai/publish](../../modules/nextflow/spliceai/publish/main.nf) — Collect and organize SpliceAI output files.
+- [aparent/chunk](../../modules/nextflow/aparent/chunk/main.nf) — Chunk genomic regions for parallel APARENT prediction.
+- [aparent/predict](../../modules/nextflow/aparent/predict/main.nf) — Predict polyadenylation sites using the APARENT deep learning model.
+- [minisplice/download](../../modules/nextflow/minisplice/download/main.nf) — Download MiniSplice model and calibration files.
+- [minisplice/predict](../../modules/nextflow/minisplice/predict/main.nf) — Predict splice site scores using MiniSplice.
+- [intronic](../../modules/nextflow/intronic/main.nf) — Classify intronic intervals using intronIC.
+- [psauron](../../modules/nextflow/psauron/main.nf) — Predict splice sites from PacBio data using Psauron.
+
+---
+
+## Transcript assembly & quantification
+
+- [aletsch](../../modules/nextflow/aletsch/main.nf) — Assemble RNA-seq transcripts using Aletsch.
+- [stringtie3](../../modules/nextflow/stringtie3/main.nf) — Transcript assembly and quantification for RNA-seq.
+- [transmeta](../../modules/nextflow/transmeta/main.nf) — Multi-sample RNA-seq transcript meta-assembly.
+- [beaver](../../modules/nextflow/beaver/main.nf) — Bayesian isoform assembly from multiple transcript annotations.
+
+---
+
+## Long-read & IsoSeq transcriptomics
+
+- [bax2bam](../../modules/nextflow/bax2bam/main.nf) — Convert BAX to BAM format with scraps and subreads.
+- [pbbamtofa](../../modules/nextflow/pbbamtofa/main.nf) — Extract PacBio BAM sequences to FASTA format.
+- [longread/check](../../modules/nextflow/longread/check/main.nf) — Check long-read chunk BAMs for errors.
+- [longread/pbsim3](../../modules/nextflow/longread/pbsim3/main.nf) — Simulate PacBio long reads using PBSIM3.
+- [longread/prepare](../../modules/nextflow/longread/prepare/main.nf) — Prepare long-read simulation from BED and transcript-gene annotations.
+- [longread/rg](../../modules/nextflow/longread/rg/main.nf) — Canonicalize PBSIM3 subread BAMs as one synthetic PacBio movie.
+- [longread/split](../../modules/nextflow/longread/split/main.nf) — Split long-read simulation into chunks.
+- [isoseq/cluster2](../../modules/nextflow/isoseq/cluster2/main.nf) — Cluster PacBio IsoSeq reads using isoseq cluster2.
+- [isotools/adapter](../../modules/nextflow/isotools/adapter/main.nf) — Detect and remove adapter sequences from long-read alignments.
+- [isotools/align](../../modules/nextflow/isotools/align/main.nf) — Select long reads with pass-1 split alignments suggesting splice sites.
+- [isotools/cigar](../../modules/nextflow/isotools/cigar/main.nf) — Rescue missed 3' splice junctions by CIGAR matching.
+- [isotools/classify/intron](../../modules/nextflow/isotools/classify/intron/main.nf) — Classify intronic intervals using iso-classify.
+- [isotools/fusion](../../modules/nextflow/isotools/fusion/main.nf) — Detect gene fusion events using iso-fusion.
+- [isotools/intron](../../modules/nextflow/isotools/intron/main.nf) — Detect intron retention events using iso-intron.
+- [isotools/nmd](../../modules/nextflow/isotools/nmd/main.nf) — Detect nonsense-mediated decay candidates using iso-nmd.
+- [isotools/orphan](../../modules/nextflow/isotools/orphan/main.nf) — Identify orphan transcripts using iso-orphan.
+- [isotools/pas](../../modules/nextflow/isotools/pas/main.nf) — Call polyadenylation sites using iso-pas.
+- [isotools/segment](../../modules/nextflow/isotools/segment/main.nf) — Filter and segment long-read transcripts using iso-segment.
+- [isotools/utr](../../modules/nextflow/isotools/utr/main.nf) — Detect 3'UTR truncation events using iso-utr.
+- [deacon/diff](../../modules/nextflow/deacon/diff/main.nf) — Compute differential transcript indexes using Deacon.
+- [deacon/filter](../../modules/nextflow/deacon/filter/main.nf) — Filter reads using a Deacon transcript index.
+- [deacon/index](../../modules/nextflow/deacon/index/main.nf) — Build a Deacon transcript index from FASTA sequences.
+- [deacon/union](../../modules/nextflow/deacon/union/main.nf) — Create a union index from multiple Deacon indexes.
+
+---
+
+## ORF & translation prediction
+
+- [xorf/chunk](../../modules/nextflow/xorf/chunk/main.nf) — Split genomic regions and sequences into chunks.
+- [xorf/netstart2](../../modules/nextflow/xorf/netstart2/main.nf) — Predict translation initiation sites using neural networks.
+- [xorf/rnasamba](../../modules/nextflow/xorf/rnasamba/main.nf) — Classify ORFs as coding or non-coding using RNAsamba.
+- [xorf/transaid](../../modules/nextflow/xorf/transaid/main.nf) — Predict translation initiation sites using TransAID.
+- [xorf/translationai](../../modules/nextflow/xorf/translationai/main.nf) — Run translational inference (TAI) on ORF predictions.
+
+---
+
+## Genome & annotation manipulation
+
+- [chromsize](../../modules/nextflow/chromsize/main.nf) — Generate chromosome size files from genome FASTA.
+- [genomemask/mask](../../modules/nextflow/genomemask/mask/main.nf) — Mask any region of the genome with any nucleotide or random sequence.
+- [genomemask/ns](../../modules/nextflow/genomemask/ns/main.nf) — Mask N's in the genome with any nucleotide or random sequence.
+- [genomemask/seleno](../../modules/nextflow/genomemask/seleno/main.nf) — Mask selenocysteine codons of the genome.
+- [genepred/lint](../../modules/nextflow/genepred/lint/main.nf) — Lint BED/GTF/GFF files.
+- [genepred/prune](../../modules/nextflow/genepred/prune/main.nf) — Prune BED/GTF/GFF files.
+- [gxf2bed](../../modules/nextflow/gxf2bed/main.nf) — Convert GXF (GFF/GTF) annotations to BED format.
+- [bed2gtf](../../modules/nextflow/bed2gtf/main.nf) — Convert BED to GTF.
+- [xloci/cds](../../modules/nextflow/xloci/cds/main.nf) — Extract exonic CDS loci from genome using reads.
+- [xloci/exon](../../modules/nextflow/xloci/exon/main.nf) — Extract exonic loci from genome using reads.
+- [xloci/intron](../../modules/nextflow/xloci/intron/main.nf) — Extract intronic loci from genome using reads.
+- [track](../../modules/nextflow/track/main.nf) — Generate UCSC genome browser track database schema files.
+
+---
+
+## Format conversion & tracks
+
+- [bigtools/bedgraphtobigwig](../../modules/nextflow/bigtools/bedgraphtobigwig/main.nf) — Convert BedGraph to BigWig using bigtools.
+- [bigtools/bedtobigbed](../../modules/nextflow/bigtools/bedtobigbed/main.nf) — Convert BED files to BigBed format using bigtools.
+- [bigtools/bigwigmerge](../../modules/nextflow/bigtools/bigwigmerge/main.nf) — Merge multiple BigWig files using bigtools.
+- [ucsc/twobittofa](../../modules/nextflow/ucsc/twobittofa/main.nf) — Convert 2bit files to FASTA format.
+- [ucsc/wigtobigwig](../../modules/nextflow/ucsc/wigtobigwig/main.nf) — Convert Wiggle format to BigWig using wigToBigWig.
+- [wiggletools/median](../../modules/nextflow/wiggletools/median/main.nf) — Compute median value across multiple BigWig files.
+
+---
+
+## BAM & FASTQ handling
+
+- [bamsplit/chrom](../../modules/nextflow/bamsplit/chrom/main.nf) — Split a BAM file into one output per reference sequence.
+- [bamsplit/inspect](../../modules/nextflow/bamsplit/inspect/main.nf) — Describe a BAM file and what a split of it would look like.
+- [bamsplit/region](../../modules/nextflow/bamsplit/region/main.nf) — Split a BAM file into one output per annotated region.
+- [bamsplit/shard](../../modules/nextflow/bamsplit/shard/main.nf) — Split a BAM file into a fixed number of deterministic shards.
+- [bamsplit/tag](../../modules/nextflow/bamsplit/tag/main.nf) — Split a BAM file into one output per auxiliary-tag value.
+- [samtools/mergebam](../../modules/nextflow/samtools/mergebam/main.nf) — Merge multiple BAM files into one sorted BAM.
+- [samtools/samtobam](../../modules/nextflow/samtools/samtobam/main.nf) — Convert SAM to BAM format and sort.
+- [fxsplit](../../modules/nextflow/fxsplit/main.nf) — Split FASTX/FASTQ reads into chunks for parallel processing.
+
+---
+
+## Utilities
+
+- [wget](../../modules/nextflow/wget/main.nf) — Download files from URLs using wget.
+- [kingfisher/get](../../modules/nextflow/kingfisher/get/main.nf) — Download SRA runs from the Sequence Read Archive using kingfisher.
+- [rsync_ssh](../../modules/nextflow/rsync_ssh/main.nf) — Transfer files to remote server via SSH using rsync.
+- [gunzip](../../modules/nextflow/gunzip/main.nf) — Decompress gzipped files using gunzip.
+- [choose](../../modules/nextflow/choose/main.nf) — Select fields from text files using the choose CLI.
+- [gawk/join](../../modules/nextflow/gawk/join/main.nf) — Concatenate multiple files into one using gawk.
