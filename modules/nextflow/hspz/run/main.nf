@@ -35,7 +35,7 @@ process HSPZ {
 
     script:
     def args = task.ext.args ?: ''
-    def tar  = task.ext.tar ?: "-Z" : ""
+    def tar  = task.ext.tar ? "-Z" : ""
 
     """
     hspZ \\
