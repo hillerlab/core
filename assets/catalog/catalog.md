@@ -72,6 +72,11 @@
 - [psltools/swap](../../modules/nextflow/psltools/swap/main.nf) — Swap PSL files from reference to query.
 - [pslsortacc](../../modules/nextflow/pslsortacc/main.nf) — Sort PSL files by target chromosome using pslSortAcc.
 - [repeat_filler](../../modules/nextflow/repeat_filler/main.nf) — Fill gaps in chain alignments using repeat filling.
+- [hspz/run](../../modules/nextflow/hspz/run/main.nf) — GPU-accelerated high-scoring ungapped alignment pair backend.
+- [kegalign/expand](../../modules/nextflow/kegalign/expand/main.nf) — Unpack a KegAlign package into one job record per partition.
+- [kegalign/lastz](../../modules/nextflow/kegalign/lastz/main.nf) — CPU gapped-extension stage for the KegAlign backend.
+- [kegalign/mps](../../modules/nextflow/kegalign/mps/main.nf) — Run KegAlign GPU instances concurrently on one GPU via NVIDIA MPS.
+- [kegalign/run](../../modules/nextflow/kegalign/run/main.nf) — GPU seeding/ungapped-extension/HSP filtering with KegAlign.
 
 ---
 
