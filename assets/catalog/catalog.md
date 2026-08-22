@@ -56,11 +56,13 @@
 - [chainmergesort](../../modules/nextflow/chainmergesort/main.nf) — Merge per-bundle chain files into a single sorted chain.
 - [chainc](../../modules/nextflow/chainc/main.nf) — Remove chain-breaking alignments using chain/net files.
 - [chaintools/antirepeat](../../modules/nextflow/chaintools/antirepeat/main.nf) — Remove chains that are primarily the result of repeats.
+- [chaintools/compare](../../modules/nextflow/chaintools/compare/main.nf) — Compare exact mappings, coverage, ambiguity, and continuity between two chain files.
 - [chaintools/filter](../../modules/nextflow/chaintools/filter/main.nf) — Filter chains by chain score/target/query.
 - [chaintools/merge](../../modules/nextflow/chaintools/merge/main.nf) — Merge chains into a single chain file.
 - [chaintools/score](../../modules/nextflow/chaintools/score/main.nf) — Score chains by chain score/target/query.
 - [chaintools/sort](../../modules/nextflow/chaintools/sort/main.nf) — Sort chains by chain score/target/query.
 - [chaintools/split](../../modules/nextflow/chaintools/split/main.nf) — Split chains into multiple chain files/chunks.
+- [chaintools/stats](../../modules/nextflow/chaintools/stats/main.nf) — Summarize alignment, gap, and continuity statistics for a chain file.
 - [fill_chainmerge](../../modules/nextflow/fill_chainmerge/main.nf) — Merge filled chain chunks into a single compressed chain.
 - [psltools/convert](../../modules/nextflow/psltools/convert/main.nf) — Convert PSL to BED.
 - [psltools/filter](../../modules/nextflow/psltools/filter/main.nf) — Filter PSL files by score, strand, or other criteria.
