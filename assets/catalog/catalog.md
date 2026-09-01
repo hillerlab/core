@@ -57,6 +57,7 @@
 - [chainc](../../modules/nextflow/chainc/main.nf) — Remove chain-breaking alignments using chain/net files.
 - [chaintools/antirepeat](../../modules/nextflow/chaintools/antirepeat/main.nf) — Remove chains that are primarily the result of repeats.
 - [chaintools/compare](../../modules/nextflow/chaintools/compare/main.nf) — Compare exact mappings, coverage, ambiguity, and continuity between two chain files.
+- [chaintools/coverage](../../modules/nextflow/chaintools/coverage/main.nf) — Measure annotation feature coverage by aligned chain blocks.
 - [chaintools/filter](../../modules/nextflow/chaintools/filter/main.nf) — Filter chains by chain score/target/query.
 - [chaintools/merge](../../modules/nextflow/chaintools/merge/main.nf) — Merge chains into a single chain file.
 - [chaintools/score](../../modules/nextflow/chaintools/score/main.nf) — Score chains by chain score/target/query.
