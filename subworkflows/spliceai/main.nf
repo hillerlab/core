@@ -47,11 +47,8 @@ workflow SPLICEAI {
                 meta, fa ->
                 def fas = fa instanceof List ? fa : [fa]
                 fas.collect { it ->
-                    // INFO: format of chunks is tmp.chr1.chunk.1.fasta.gz
-                    // INFO: grab -3 should be safe
-                    def parts = it.baseName.split('\\.')
-                    def chunk = parts[-2]
-                    [ [ id: meta.id + '.' + chunk ], it ]
+                    def identifier = it.baseName.replaceFirst(/^tmp\./, '').replaceFirst(/\.fa$/, '')
+                    [ [ id: meta.id + '.' + identifier ], it ]
                 }
             }
             .set { ch_chunks }
@@ -61,9 +58,8 @@ workflow SPLICEAI {
                 meta, fa ->
                 def fas = fa instanceof List ? fa : [fa]
                 fas.collect { it ->
-                    def parts = it.baseName.split('\\.')
-                    def chunk = parts[-1]
-                    [ [ id: meta.id + '.' + chunk ], it ]
+                    def identifier = it.baseName.replaceFirst(/^tmp\./, '').replaceFirst(/\.fa$/, '')
+                    [ [ id: meta.id + '.' + identifier ], it ]
                 }
             }
             .set { ch_chunks }
