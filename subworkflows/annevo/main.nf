@@ -13,9 +13,17 @@ include { FXSPLIT } from '../../modules/nextflow/fxsplit/main.nf'
 include { ANNEVO_PREDICTION } from '../../modules/nextflow/annevo/prediction/main.nf'
 include { ANNEVO_DECODING } from '../../modules/nextflow/annevo/decoding/main.nf'
 
-def ANNEVO_LINEAGES = ['Mammalia', 'Insecta', 'Aves', 'Actinopteri', 'Magnoliopsida', 'Fungi'] as Set
-def ANNEVO_OVERLAP_LINEAGES = ['Mammalia', 'Actinopteri'] as Set
-def ANNEVO_SCATTER_MODES = ['none', 'chromosome', 'weighted'] as Set
+def annevoLineages() {
+    return ['Mammalia', 'Insecta', 'Aves', 'Actinopteri', 'Magnoliopsida', 'Fungi']
+}
+
+def annevoOverlapLineages() {
+    return ['Mammalia', 'Actinopteri']
+}
+
+def annevoScatterModes() {
+    return ['none', 'chromosome', 'weighted']
+}
 
 def annevoBool(value) {
     if (value == null) {
@@ -297,17 +305,19 @@ workflow ANNEVO {
     ch_versions = Channel.empty()
 
     def lin = lineage.toString()
-    if (!ANNEVO_LINEAGES.contains(lin)) {
-        error "Unsupported ANNEVO lineage '${lin}'. Choose one of: ${ANNEVO_LINEAGES.join(', ')}"
+    def lineages = annevoLineages()
+    if (!lineages.contains(lin)) {
+        error "Unsupported ANNEVO lineage '${lin}'. Choose one of: ${lineages.join(', ')}"
     }
 
     def mode = scatter_mode.toString()
-    if (!ANNEVO_SCATTER_MODES.contains(mode)) {
-        error "Unsupported ANNEVO scatter mode '${mode}'. Choose one of: ${ANNEVO_SCATTER_MODES.join(', ')}"
+    def scatter_modes = annevoScatterModes()
+    if (!scatter_modes.contains(mode)) {
+        error "Unsupported ANNEVO scatter mode '${mode}'. Choose one of: ${scatter_modes.join(', ')}"
     }
 
     def parsed_overlap = annevoBool(overlap_pred)
-    def use_overlap = parsed_overlap == null ? ANNEVO_OVERLAP_LINEAGES.contains(lin) : parsed_overlap
+    def use_overlap = parsed_overlap == null ? annevoOverlapLineages().contains(lin) : parsed_overlap
 
     def n_bins = 8
     if (scatter_bins != null && scatter_bins.toString().trim()) {
@@ -364,7 +374,7 @@ workflow ANNEVO {
                 }
                 if (mode == 'weighted') {
                     return annevoPackBins(records, n_bins).collect { bin ->
-                        def chunk = sprintf('bin%03d', bin.order + 1)
+                        def chunk = "bin${(bin.order + 1).toString().padLeft(3, '0')}"
                         [
                             meta + [
                                 id     : "${meta.sample}.${chunk}",
