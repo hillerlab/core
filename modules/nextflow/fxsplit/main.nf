@@ -7,7 +7,8 @@ Distributed under the terms of the Apache License, Version 2.0.
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     FXSPLIT — Split FASTX/FASTQ reads into chunks for parallel processing.
     Partitions read files into smaller chunks to enable parallel processing
-    across multiple CPUs.
+    across multiple CPUs. Set meta.headers or task.ext.headers to use
+    fxsplit -H (one output file per FASTA record).
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 */
 
@@ -35,15 +36,18 @@ process FXSPLIT {
     def args          = task.ext.args   ?: ''
     def prefix        = task.ext.prefix ?: "${meta.id}"
     def chunks        = task.ext.chunks ?: 400000
+    def header_mode   = (meta.headers == true) || (task.ext.headers ? true : false)
+    def mode_flag     = header_mode ? '-H' : "-c ${chunks}"
+    def suffix_flag   = header_mode ? '' : "--suffix ${prefix}"
     def gzip          = reads.name.endsWith('.gz') ? true : false
     """
     fxsplit \\
         $args \\
         -f $reads \\
-        -c $chunks \\
+        ${mode_flag} \\
         -t $task.cpus \\
         -C \\
-        --suffix ${prefix}
+        ${suffix_flag}
 
     if [ ${meta.singleton} == true ]; then
         for f in chunks/*fasta.gz; do
@@ -73,10 +77,14 @@ process FXSPLIT {
 
     if [ $gzip == true ]; then
         mkdir chunks/gz
-        mv chunks/*fast*.gz chunks/gz
+        mv chunks/*fast*.gz chunks/gz 2>/dev/null || mv chunks/*.gz chunks/gz
     else
         mkdir chunks/fx
-        mv chunks/*fast* chunks/fx
+        if [ "${header_mode}" = "true" ]; then
+            find chunks -maxdepth 1 -type f -exec mv {} chunks/fx/ \\;
+        else
+            mv chunks/*fast* chunks/fx
+        fi
     fi
 
     cat <<-END_VERSIONS > versions.yml

@@ -109,6 +109,16 @@
 
 ---
 
+## Gene annotation
+
+- [annevo/annotation](../../modules/nextflow/annevo/annotation/main.nf) — One-step ANNEVO annotation (prediction + decoding). Prefer the split modules for production.
+- [annevo/prediction](../../modules/nextflow/annevo/prediction/main.nf) — ANNEVO nucleotide-level inference (`process_gpu`; CPU if no GPU profile).
+- [annevo/decoding](../../modules/nextflow/annevo/decoding/main.nf) — Decode ANNEVO H5 predictions into GFF3 on CPU.
+- [subworkflows/annevo](../../subworkflows/annevo/main.nf) — Scatter (none / chromosome / weighted), predict, decode, and gather GFF3.
+- [workflows/annevo](../../workflows/annevo/main.nf) — Standalone ANNEVO pipeline. Bundled ANNEVO is non-commercial.
+
+---
+
 ## Transcript assembly & quantification
 
 - [aletsch](../../modules/nextflow/aletsch/main.nf) — Assemble RNA-seq transcripts using Aletsch.
