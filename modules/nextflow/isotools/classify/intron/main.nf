@@ -42,9 +42,9 @@ process ISOTOOLS_CLASSIFY_INTRON {
     def iic       = intronic && intronic.size() > 0 ? "--iic $intronic" : ''
     """
     iso-classify intron \\
-        --isoseq $reads \\
+        --input $reads \\
         --sequence $genome \\
-        --toga $annotation \\
+        --reference $annotation \\
         --prefix ${prefix} \\
         $spliceai \\
         $rps \\
