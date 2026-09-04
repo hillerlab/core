@@ -116,6 +116,10 @@
 - [annevo/decoding](../../modules/nextflow/annevo/decoding/main.nf) — Decode ANNEVO H5 predictions into GFF3 on CPU.
 - [subworkflows/annevo](../../subworkflows/annevo/main.nf) — Scatter (none / chromosome / weighted), predict, decode, and gather GFF3.
 - [workflows/annevo](../../workflows/annevo/main.nf) — Standalone ANNEVO pipeline. Bundled ANNEVO is non-commercial.
+- [tiberius/predict](../../modules/nextflow/tiberius/predict/main.nf) — Tiberius ab initio inference (`process_gpu`; CPU if no GPU profile). Scatter jobs emit GTF only.
+- [tiberius/merge](../../modules/nextflow/tiberius/merge/main.nf) — Merge chunk GTFs with merge_annotations.py, restore FASTA order, emit GTF/GFF3 and optional protein/CDS FASTAs.
+- [subworkflows/tiberius](../../subworkflows/tiberius/main.nf) — Scatter (none / chromosome / weighted), predict, and merge.
+- [workflows/tiberius](../../workflows/tiberius/main.nf) — Standalone Tiberius pipeline.
 
 ---
 
