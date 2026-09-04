@@ -71,11 +71,17 @@ def tiberiusParseManifest(path) {
     def records = []
     path.withReader { reader ->
         def header = reader.readLine()
+        if (header == null || header.split('\t')*.trim() != ['order', 'seqid', 'length']) {
+            error "Malformed TIBERIUS manifest header in ${path}: '${header}' (expected 'order\\tseqid\\tlength')"
+        }
         reader.eachLine { line ->
             if (!line) {
                 return
             }
             def parts = line.split('\t', 3)
+            if (parts.size() < 3 || !parts[0].trim().matches(/\d+/) || !parts[2].trim().matches(/\d+/)) {
+                error "Malformed TIBERIUS manifest line in ${path}: '${line}' (expected 'order\\tseqid\\tlength' with numeric order/length)"
+            }
             records << [
                 order : parts[0] as int,
                 seqid : parts[1],
@@ -103,7 +109,7 @@ process TIBERIUS_MANIFEST {
 
     script:
     """
-    awk 'BEGIN { OFS="\\t"; print "order", "seqid", "length" }
+    awk 'BEGIN { OFS="\\t"; order = 0; print "order", "seqid", "length" }
          /^>/ {
              if (seqid != "") print order, seqid, len
              if (seqid != "") order++
