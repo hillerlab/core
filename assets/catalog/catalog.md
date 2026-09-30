@@ -120,6 +120,8 @@
 - [tiberius/merge](../../modules/nextflow/tiberius/merge/main.nf) — Merge chunk GTFs with merge_annotations.py, restore FASTA order, emit GTF/GFF3 and optional protein/CDS FASTAs.
 - [subworkflows/tiberius](../../subworkflows/tiberius/main.nf) — Scatter (none / chromosome / weighted), predict, and merge.
 - [workflows/tiberius](../../workflows/tiberius/main.nf) — Standalone Tiberius pipeline.
+- [oriongeno/predict](../../modules/nextflow/oriongeno/predict/main.nf) — OrionGeno ab initio gene annotation on one GPU (`process_gpu`). No CPU fallback. Default checkpoint: mammals. GTF by default, GFF3 via `meta.oriongeno_format`. Bundled OrionGeno is non-commercial.
+- [oriongeno/multi](../../modules/nextflow/oriongeno/multi/main.nf) — OrionGeno annotation across the GPUs assigned to the task (`oriongeno multi`). Writes GTF. `process_gpu` requests one GPU; raise `accelerator` on `ORIONGENO_MULTI` to use more.
 
 ---
 
