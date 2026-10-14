@@ -45,7 +45,7 @@ workflow SPLICEAI2 {
           }
           genome_fai = file("${uncompressed_genome}.fai", checkIfExists: false)
           if (!genome_fai.toFile().isFile()) {
-              error "Missing FASTA index '${genome_fai}' required by --spliceai2_loci; provide an index made with samtools faidx because this repository has no samtools faidx module"
+              error "Missing FASTA index '${genome_fai}' required by --spliceai2_loci; index the uncompressed FASTA (e.g. gunzip -k genome.fa.gz && samtools faidx genome.fa) and keep the .fai next to --genome"
           }
           loci = file(params.spliceai2_loci, checkIfExists: true)
           if (!loci.toFile().isFile()) {
