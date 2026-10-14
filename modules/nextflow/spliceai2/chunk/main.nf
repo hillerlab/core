@@ -22,8 +22,8 @@ process SPLICEAI2_CHUNK {
     val compression
 
     output:
-    tuple val(meta), path("chunks/*.fa"),    optional: true, emit: fasta
-    tuple val(meta), path("chunks/*.fa.gz"), optional: true, emit: fasta_gz
+    tuple val(meta), path("chunks/chunks/*.fa"),    optional: true, emit: fasta
+    tuple val(meta), path("chunks/chunks/*.fa.gz"), optional: true, emit: fasta_gz
     path "versions.yml",                                  emit: versions
 
     when:
@@ -49,8 +49,8 @@ process SPLICEAI2_CHUNK {
     stub:
     def extension = compression ? 'fa.gz' : 'fa'
     """
-    mkdir -p chunks
-    touch chunks/stub.${extension}
+    mkdir -p chunks/chunks
+    touch chunks/chunks/stub.${extension}
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
