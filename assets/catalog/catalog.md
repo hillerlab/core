@@ -100,6 +100,12 @@
 - [spliceai/derive](../../modules/nextflow/spliceai/derive/main.nf) — Derive splice event scores from SpliceAI predictions.
 - [spliceai/predict](../../modules/nextflow/spliceai/predict/main.nf) — Predict splice junctions from genomic sequences using SpliceAI.
 - [spliceai/publish](../../modules/nextflow/spliceai/publish/main.nf) — Collect and organize SpliceAI output files.
+- [spliceai2/chunk](../../modules/nextflow/spliceai2/chunk/main.nf) — Chunk genomic sequences for parallel SpliceAI2 prediction.
+- [spliceai2/predict](../../modules/nextflow/spliceai2/predict/main.nf) — Predict splice sites from genomic sequences using SpliceAI2.
+- [spliceai2/publish](../../modules/nextflow/spliceai2/publish/main.nf) — Collect and organize SpliceAI2 output files.
+- [spliceai2/transcripts](../../modules/nextflow/spliceai2/transcripts/main.nf) — Decode transcript structures for a set of loci using SpliceAI2.
+- [subworkflows/spliceai2](../../subworkflows/spliceai2/main.nf) — Chunk, predict, convert, merge, and optionally decode SpliceAI2 outputs.
+- [workflows/spliceai2](../../workflows/spliceai2/main.nf) — Standalone SpliceAI2 pipeline.
 - [aparent/chunk](../../modules/nextflow/aparent/chunk/main.nf) — Chunk genomic regions for parallel APARENT prediction.
 - [aparent/predict](../../modules/nextflow/aparent/predict/main.nf) — Predict polyadenylation sites using the APARENT deep learning model.
 - [minisplice/download](../../modules/nextflow/minisplice/download/main.nf) — Download MiniSplice model and calibration files.

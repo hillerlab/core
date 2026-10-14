@@ -11,7 +11,7 @@ Distributed under the terms of the Apache License, Version 2.0.
 
 process SPLICEAI2_TRANSCRIPTS {
     tag "$meta.id"
-    label 'process_low'
+    label 'process_high'
     label 'process_gpu'
 
     container "${ workflow.containerEngine == 'singularity' && !task.ext.singularity_pull_docker_container ?
@@ -36,7 +36,7 @@ process SPLICEAI2_TRANSCRIPTS {
     """
     test -s "${genome_fai}"
 
-    spliceai2 transcripts \\
+    spliceai2 transcripts --no-compile \\
         $args \\
         --genome "${genome}" \\
         --loci "${loci}" \\

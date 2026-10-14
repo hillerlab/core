@@ -38,12 +38,14 @@ workflow SPLICEAI2 {
       def genome_fai = null
       def loci = null
       if (params.spliceai2_loci) {
-          if (!(genome_fasta.name.toLowerCase().endsWith('.fa') || genome_fasta.name.toLowerCase().endsWith('.fasta'))) {
-              error "--spliceai2_loci requires an uncompressed FASTA with a sibling .fai index"
+          def uncompressed_genome = genome_fasta.toString().replaceFirst(/\.gz$/, '')
+          def fasta_name = uncompressed_genome.toLowerCase()
+          if (!(fasta_name.endsWith('.fa') || fasta_name.endsWith('.fasta'))) {
+              error "--spliceai2_loci requires a .fa or .fasta genome, optionally compressed as .gz"
           }
-          genome_fai = file("${genome_fasta}.fai", checkIfExists: true)
+          genome_fai = file("${uncompressed_genome}.fai", checkIfExists: false)
           if (!genome_fai.toFile().isFile()) {
-              error "Missing FASTA index '${genome_fasta}.fai' required by --spliceai2_loci"
+              error "Missing FASTA index '${genome_fai}' required by --spliceai2_loci; provide an index made with samtools faidx because this repository has no samtools faidx module"
           }
           loci = file(params.spliceai2_loci, checkIfExists: true)
           if (!loci.toFile().isFile()) {

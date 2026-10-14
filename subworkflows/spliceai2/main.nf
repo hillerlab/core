@@ -67,10 +67,10 @@ workflow SPLICEAI2 {
 
       SPLICEAI2_PREDICT(ch_chunks, models, species)
 
-      WIGTOBIGWIG_DONOR_PLUS(SPLICEAI2_PREDICT.out.donor_plus, chromsizes)
-      WIGTOBIGWIG_DONOR_MINUS(SPLICEAI2_PREDICT.out.donor_minus, chromsizes)
-      WIGTOBIGWIG_ACCEPTOR_PLUS(SPLICEAI2_PREDICT.out.acceptor_plus, chromsizes)
-      WIGTOBIGWIG_ACCEPTOR_MINUS(SPLICEAI2_PREDICT.out.acceptor_minus, chromsizes)
+      WIGTOBIGWIG_DONOR_PLUS(SPLICEAI2_PREDICT.out.donor_plus.map { meta, wig -> [ [ id: 'donor_plus' ], wig ] }, chromsizes)
+      WIGTOBIGWIG_DONOR_MINUS(SPLICEAI2_PREDICT.out.donor_minus.map { meta, wig -> [ [ id: 'donor_minus' ], wig ] }, chromsizes)
+      WIGTOBIGWIG_ACCEPTOR_PLUS(SPLICEAI2_PREDICT.out.acceptor_plus.map { meta, wig -> [ [ id: 'acceptor_plus' ], wig ] }, chromsizes)
+      WIGTOBIGWIG_ACCEPTOR_MINUS(SPLICEAI2_PREDICT.out.acceptor_minus.map { meta, wig -> [ [ id: 'acceptor_minus' ], wig ] }, chromsizes)
 
       BIGWIGMERGE_DONOR_PLUS(
           WIGTOBIGWIG_DONOR_PLUS.out.bigwig

@@ -37,7 +37,7 @@ process SPLICEAI2_PREDICT {
     script:
     def args = task.ext.args ?: ''
     """
-    spliceai2 predict \\
+    spliceai2 predict --no-compile \\
         $args \\
         --sequence "${fasta}" \\
         --models "${models}" \\
