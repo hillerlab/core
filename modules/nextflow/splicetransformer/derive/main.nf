@@ -46,7 +46,7 @@ process SPLICETRANSFORMER_DERIVE {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        splicetransformer derive: $( splicetransformer derive --version | sed 's/splicetransformer derive //g' )
+        splicetransformer derive: \$( splicetransformer derive --version | sed 's/splicetransformer derive //g' )
     END_VERSIONS
     """
 
@@ -56,7 +56,7 @@ process SPLICETRANSFORMER_DERIVE {
 
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-        splicetransformer derive: $( splicetransformer derive --version | sed 's/splicetransformer derive //g' )
+        splicetransformer derive: \$( splicetransformer derive --version | sed 's/splicetransformer derive //g' )
     END_VERSIONS
     """
 }
